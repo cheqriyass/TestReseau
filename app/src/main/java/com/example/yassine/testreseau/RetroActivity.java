@@ -1,5 +1,6 @@
 package com.example.yassine.testreseau;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.widget.Toast;
 import com.example.yassine.testreseau.models.Users;
 import com.example.yassine.testreseau.models.Voiture;
 
+import java.io.Serializable;
 import java.util.List;
 
 import retrofit.Callback;
@@ -21,7 +23,6 @@ public class RetroActivity extends AppCompatActivity implements UserAdapter.List
     private static int NUM_LIST_ITEMS = 20;
     private RecyclerView recyclerView;
     private UserAdapter userAdapter;
-    private CarAdapter carAdapter;
     private Toast toast;
     private RetroActivity retroActivity;
 
@@ -62,14 +63,8 @@ public class RetroActivity extends AppCompatActivity implements UserAdapter.List
 
     @Override
     public void onListItemClick(List<Voiture> voitures) {
-//        String message = "you clicked " + voitures.get(0).getName();
-//        if (toast != null)
-//            toast.cancel();
-//        toast = Toast.makeText(this, message, Toast.LENGTH_LONG);
-//        toast.show();
-
-
-        carAdapter = new CarAdapter(voitures.size(), voitures);
-        recyclerView.setAdapter(carAdapter);
+        Intent intent = new Intent(this, CarActivity.class);
+        intent.putExtra("voitures", (Serializable) voitures);
+        startActivity(intent);
     }
 }

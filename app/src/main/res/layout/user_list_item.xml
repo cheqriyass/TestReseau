@@ -33,6 +33,13 @@
             android:layout_weight="1"
             android:text="Age:"
             android:textSize="30sp" />
+
+        <CheckBox
+            android:id="@+id/user_permis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Permis" />
     </LinearLayout>
 
 </FrameLayout>

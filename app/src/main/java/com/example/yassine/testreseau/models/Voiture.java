@@ -1,7 +1,9 @@
 package com.example.yassine.testreseau.models;
 
 
-public class Voiture {
+import java.io.Serializable;
+
+public class Voiture implements Serializable{
 
     private String marque;
     private String name;

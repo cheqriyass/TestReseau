@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.example.yassine.testreseau.models.User;
@@ -60,13 +61,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
         TextView user_nom;
         TextView user_prenom;
         TextView user_age;
+        CheckBox user_permis;
 
         public UserViewHolder(View itemView) {
             super(itemView);
             this.user_nom = itemView.findViewById(R.id.user_nom);
             this.user_prenom = itemView.findViewById(R.id.user_prenom);
             this.user_age = itemView.findViewById(R.id.user_age);
+            this.user_permis = itemView.findViewById(R.id.user_permis);
             itemView.setOnClickListener(this);
+            this.user_permis.setEnabled(false);
         }
 
         public void bind(User user) {
@@ -74,6 +78,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
             this.user_nom.setText(user.getNom());
             this.user_prenom.setText(user.getPrenom());
             this.user_age.setText(String.valueOf(user.getAge()));
+            this.user_permis.setChecked(user.getPermis());
         }
 
 
